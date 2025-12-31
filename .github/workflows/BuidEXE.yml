@@ -2,42 +2,52 @@ name: Build Windows EXE
 
 on:
   push:
-    branches: [ main, master ]
+    branches:
+      - main
+      - master
   workflow_dispatch:
 
 jobs:
   build-windows:
     runs-on: windows-latest
-    
+
     steps:
-    - uses: actions/checkout@v3
-    
-    - name: Set up Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
-    
-    - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install PyInstaller
-        pip install -r requirements.txt
-    
-    - name: Build Windows EXE
-      run: |
-        pyinstaller Canvex.spec -y
-    
-    - name: Upload EXE artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: Canvex-Windows
-        path: dist/Canvex.exe
-        retention-days: 30
-    
-    - name: Create Release
-      if: startsWith(github.ref, 'refs/tags/')
-      uses: softprops/action-gh-release@v1
-      with:
-        files: dist/Canvex.exe
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # 1️⃣ Checkout repository
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ Setup Python
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+          pip install -r requirements.txt
+
+      # 4️⃣ Build Windows EXE using spec file
+      - name: Build Windows EXE
+        run: |
+          pyinstaller Canvex.spec -y
+
+      # 5️⃣ Upload EXE as artifact (FIXED: v4)
+      - name: Upload EXE artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Canvex-Windows
+          path: dist/Canvex.exe
+          retention-days: 30
+
+      # 6️⃣ Create GitHub Release (only on tag push)
+      - name: Create GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist/Canvex.exe
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
