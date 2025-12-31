@@ -1,8 +1,10 @@
 # -*- mode: python ; coding: utf-8 -*-
 
+import os
+import sys
 from PyInstaller.utils.hooks import collect_data_files, collect_submodules
 
-# qtawesome (safe optional)
+# Collect qtawesome data files (fonts) - need to try/except in case not installed
 try:
     qtawesome_datas = collect_data_files('qtawesome')
     qtawesome_hiddenimports = collect_submodules('qtawesome')
@@ -14,14 +16,14 @@ block_cipher = None
 
 a = Analysis(
     ['Canvex.py'],
-    pathex=['.'],
+    pathex=[],
     binaries=[],
     datas=[
         ('splash.png', '.'),
         ('app_icon.ico', '.'),
+        ('app_icon.icns', '.'),
     ] + qtawesome_datas,
     hiddenimports=[
-        *qtawesome_hiddenimports,
         'qtawesome',
         'qtpy',
         'PyQt5.QtSvg',
@@ -42,8 +44,11 @@ a = Analysis(
         'certifi',
     ],
     hookspath=[],
+    hooksconfig={},
     runtime_hooks=[],
     excludes=[],
+    win_no_prefer_redirects=False,
+    win_private_assemblies=False,
     cipher=block_cipher,
     noarchive=False,
 )
@@ -53,13 +58,22 @@ pyz = PYZ(a.pure, a.zipped_data, cipher=block_cipher)
 exe = EXE(
     pyz,
     a.scripts,
+    a.binaries,
+    a.zipfiles,
+    a.datas,
     [],
-    exclude_binaries=False,      # ✅ REQUIRED for onefile
     name='Canvex',
     debug=False,
+    bootloader_ignore_signals=False,
     strip=False,
     upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
     console=False,
-    icon='app_icon.ico',
-    runtime_tmpdir=None,         # ✅ NO _internal folder
+    disable_windowed_traceback=False,
+    argv_emulation=False,
+    target_arch=None,
+    codesign_identity=None,
+    entitlements_file=None,
+    icon='app_icon.icns',
 )
