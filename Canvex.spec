@@ -1,10 +1,8 @@
 # -*- mode: python ; coding: utf-8 -*-
 
-import os
-import sys
 from PyInstaller.utils.hooks import collect_data_files, collect_submodules
 
-# Collect qtawesome data files (fonts) - need to try/except in case not installed
+# qtawesome (safe optional)
 try:
     qtawesome_datas = collect_data_files('qtawesome')
     qtawesome_hiddenimports = collect_submodules('qtawesome')
@@ -16,14 +14,14 @@ block_cipher = None
 
 a = Analysis(
     ['Canvex.py'],
-    pathex=[],
+    pathex=['.'],
     binaries=[],
     datas=[
         ('splash.png', '.'),
         ('app_icon.ico', '.'),
-        ('app_icon.icns', '.'),
     ] + qtawesome_datas,
     hiddenimports=[
+        *qtawesome_hiddenimports,
         'qtawesome',
         'qtpy',
         'PyQt5.QtSvg',
@@ -44,11 +42,8 @@ a = Analysis(
         'certifi',
     ],
     hookspath=[],
-    hooksconfig={},
     runtime_hooks=[],
     excludes=[],
-    win_no_prefer_redirects=False,
-    win_private_assemblies=False,
     cipher=block_cipher,
     noarchive=False,
 )
@@ -59,43 +54,12 @@ exe = EXE(
     pyz,
     a.scripts,
     [],
-    exclude_binaries=True,
+    exclude_binaries=False,      # ✅ REQUIRED for onefile
     name='Canvex',
     debug=False,
-    bootloader_ignore_signals=False,
     strip=False,
     upx=True,
     console=False,
-    disable_windowed_traceback=False,
-    argv_emulation=False,
-    target_arch=None,
-    codesign_identity=None,
-    entitlements_file=None,
-    icon='app_icon.icns',
-)
-
-coll = COLLECT(
-    exe,
-    a.binaries,
-    a.zipfiles,
-    a.datas,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    name='Canvex',
-)
-
-app = BUNDLE(
-    coll,
-    name='Canvex.app',
-    icon='app_icon.icns',
-    bundle_identifier='com.canvex.app',
-    info_plist={
-        'CFBundleName': 'Canvex',
-        'CFBundleDisplayName': 'Canvex',
-        'CFBundleShortVersionString': '1.0.0',
-        'CFBundleVersion': '1.0.0',
-        'NSHighResolutionCapable': True,
-        'LSMinimumSystemVersion': '10.13',
-    },
+    icon='app_icon.ico',
+    runtime_tmpdir=None,         # ✅ NO _internal folder
 )
