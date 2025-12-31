@@ -1,0 +1,122 @@
+{
+  "theme": "headshot portrait closeup face",
+  "custom_theme": "",
+  "resolution": "480p",
+  "custom_res": "",
+  "format": "JPG",
+  "jpg_quality": 100,
+  "browser": "Bing Images",
+  "last_excel_dir": "/Users/kunal/Library/CloudStorage/OneDrive-Personal/Documents/FB_MY/Current",
+  "mappings": [
+    [
+      "actor1",
+      "Image1"
+    ],
+    [
+      "actor2",
+      "Image2"
+    ],
+    [
+      "actor3",
+      "Image3"
+    ],
+    [
+      "actor4",
+      "Image4"
+    ],
+    [
+      "actor5",
+      "Image5"
+    ],
+    [
+      "actor6",
+      "Image6"
+    ]
+  ],
+  "filter_portrait": true,
+  "filter_bw": true,
+  "filter_cartoon": true,
+  "recent_files": [
+    "/Users/kunal/Library/CloudStorage/OneDrive-Personal/Documents/FB_MY/Current/top10Hollywood - Copy.xlsx",
+    "/Users/kunal/Library/CloudStorage/OneDrive-Personal/Documents/FB_MY/Current/NewUpload10.xlsx",
+    "/Users/kunal/Library/CloudStorage/OneDrive-Personal/Documents/FB_MY/Current/New10_27Dec2025.xlsx",
+    "/Users/kunal/Library/CloudStorage/OneDrive-Personal/Documents/FB_MY/Current/StrangerthingsTop10.xlsx",
+    "/Users/kunal/test_excel.xlsx"
+  ],
+  "mapping_history": [
+    {
+      "timestamp": "2025-12-31T00:00:25.386894",
+      "mappings": [
+        [
+          "actor1",
+          "Image1"
+        ],
+        [
+          "actor2",
+          "Image2"
+        ],
+        [
+          "actor3",
+          "Image3"
+        ],
+        [
+          "actor4",
+          "Image4"
+        ],
+        [
+          "actor5",
+          "Image5"
+        ],
+        [
+          "actor6",
+          "Image6"
+        ]
+      ]
+    },
+    {
+      "timestamp": "2025-12-30T16:51:35.627361",
+      "mappings": [
+        [
+          "actor1",
+          "Image1"
+        ],
+        [
+          "actor2",
+          "Image2"
+        ],
+        [
+          "actor3",
+          "Image3"
+        ],
+        [
+          "actor4",
+          "Image4"
+        ],
+        [
+          "actor5",
+          "Image5"
+        ],
+        [
+          "actor6",
+          "Image6"
+        ],
+        [
+          "actor7",
+          "Image7"
+        ],
+        [
+          "actor8",
+          "Image8"
+        ],
+        [
+          "actor9",
+          "Image9"
+        ],
+        [
+          "actor10",
+          "Image10"
+        ]
+      ]
+    }
+  ]
+}

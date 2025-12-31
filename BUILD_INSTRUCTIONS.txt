@@ -1,0 +1,151 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                                                                            ║
+║                   CANVEX WINDOWS BUILD SETUP                             ║
+║                   Automated .exe Building via GitHub                      ║
+║                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📋 REQUIREMENTS:
+  ✓ GitHub account (free): https://github.com/signup
+  ✓ Git installed on your Mac
+  ✓ Internet connection
+
+═══════════════════════════════════════════════════════════════════════════════
+
+⚡ QUICK START (5 MINUTES):
+
+1️⃣  CREATE GITHUB REPOSITORY
+    → Go to https://github.com/new
+    → Name: "Canvex"
+    → Set to PUBLIC (free builds require this)
+    → Create repository
+
+2️⃣  PUSH YOUR CODE
+    In terminal, run:
+    
+    cd /Users/kunal/Canvex/FinalBuildMac
+    git init
+    git add .
+    git commit -m "Initial commit with Windows build automation"
+    git remote add origin https://github.com/YOUR_USERNAME/Canvex.git
+    git branch -M main
+    git push -u origin main
+
+3️⃣  WAIT FOR AUTOMATIC BUILD
+    → Go to https://github.com/YOUR_USERNAME/Canvex/actions
+    → See "Build Windows EXE" workflow running
+    → Wait 2-3 minutes for build to complete
+
+4️⃣  DOWNLOAD WINDOWS .EXE
+    → Click on completed "Build Windows EXE" workflow
+    → Scroll to "Artifacts" section
+    → Download "Canvex-Windows"
+    → Extract the folder to get Canvex.exe
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🔄 NORMAL WORKFLOW (After Setup):
+
+Make changes locally:
+    nano Canvex.py
+    (edit your code)
+
+Push to GitHub:
+    git add .
+    git commit -m "Your change description"
+    git push
+
+GitHub automatically:
+    ✅ Detects new push
+    ✅ Starts Windows build on GitHub servers
+    ✅ Downloads Python 3.11
+    ✅ Installs dependencies
+    ✅ Runs PyInstaller
+    ✅ Saves Canvex.exe (30 days free storage)
+
+Download the new .exe:
+    → Go to Actions tab
+    → Download latest artifact
+    → Done!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+🎯 CREATE GITHUB RELEASES (For Distribution):
+
+After you're happy with a version:
+    
+    git tag v1.0.0
+    git push origin v1.0.0
+
+GitHub automatically:
+    ✅ Builds Windows .exe
+    ✅ Creates Release page
+    ✅ Attaches .exe to Release
+    ✅ Generates download links
+
+Now you have a professional release page at:
+    https://github.com/YOUR_USERNAME/Canvex/releases/tag/v1.0.0
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📁 FILES SETUP:
+
+.github/workflows/build-windows.yml
+    → GitHub Actions configuration
+    → Tells GitHub how to build Windows .exe
+
+requirements.txt
+    → List of Python packages to install
+    → Already populated with all dependencies
+
+Canvex.py
+    → Your main application (already exists)
+
+Canvex.spec
+    → PyInstaller configuration (already exists)
+
+═══════════════════════════════════════════════════════════════════════════════
+
+❓ FAQ:
+
+Q: Do I need Windows to build Windows .exe?
+A: No! GitHub Actions runs on their Windows servers for you.
+
+Q: How long until .exe is ready?
+A: Usually 2-3 minutes after you push code.
+
+Q: Can I download .exe later?
+A: Yes! Artifacts are stored for 30 days (free).
+
+Q: What if build fails?
+A: Check the GitHub Actions logs for error details.
+
+Q: Can I make releases?
+A: Yes! Use git tags to create releases with attached .exe.
+
+═══════════════════════════════════════════════════════════════════════════════
+
+📚 DETAILED GUIDES:
+
+For step-by-step setup:
+    → Read GITHUB_ACTIONS_SETUP.md
+
+For quick reference:
+    → Read QUICK_REFERENCE.md
+
+For troubleshooting:
+    → Check GitHub Actions logs
+    → See GITHUB_ACTIONS_SETUP.md "Troubleshooting" section
+
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ NEXT STEPS:
+
+1. Create GitHub account (free): https://github.com/signup
+2. Follow steps in this file (5 minutes)
+3. Push your code
+4. Download your Windows .exe
+
+That's it! You now have automatic Windows builds! 🎉
+
+═══════════════════════════════════════════════════════════════════════════════

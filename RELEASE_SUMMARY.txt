@@ -1,0 +1,188 @@
+╔═══════════════════════════════════════════════════════════════════════════════╗
+║                                                                               ║
+║                   CANVEX v1.0.1 — DECEMBER 2025 RELEASE                      ║
+║                                                                               ║
+║                    Session Management & Mapping Enhancements                 ║
+║                                                                               ║
+╚═══════════════════════════════════════════════════════════════════════════════╝
+
+✨ NEW FEATURES
+═══════════════════════════════════════════════════════════════════════════════
+
+1. SESSION PERSISTENCE
+   ✓ Auto-save last directory opened
+   ✓ Recent files list (10 files with validation)
+   ✓ Automatic settings backup (theme, resolution, filters, etc.)
+
+2. SMART MAPPING MANAGEMENT
+   ✓ Automatic history tracking (last 5 configurations)
+   ✓ Previous Mappings dialog with live preview
+   ✓ Quick restoration of past mapping configurations
+   ✓ Reset all mappings with confirmation
+
+3. ENHANCED COLUMN MAPPING
+   ✓ Smart column detection (handles missing columns)
+   ✓ Dynamic delete (works correctly with history)
+   ✓ Text field visibility management (show/hide as needed)
+   ✓ Auto-clear functionality
+
+4. VISUAL IMPROVEMENTS
+   ✓ Native theme integration (respects Light/Dark theme)
+   ✓ List hover effects (smooth, interactive feedback)
+   ✓ Better dropdown visibility
+   ✓ macOS 14.2+ native styling
+
+
+🐛 BUGS FIXED
+═══════════════════════════════════════════════════════════════════════════════
+
+   ✓ Dropdown selections now visible (removed black background)
+   ✓ Previous mappings dialog properly sized (700×600)
+   ✓ Preview shows mappings immediately
+   ✓ Single mapping can be selected
+   ✓ Delete works with loaded history mappings
+   ✓ Text field no longer always visible
+   ✓ Hover effects now working on macOS
+   ✓ Dropdowns follow system theme colors
+
+
+📚 DOCUMENTATION
+═══════════════════════════════════════════════════════════════════════════════
+
+   ✓ USER_GUIDE.md
+     - New "Recent Features & Enhancements" section (150+ lines)
+     - Usage examples and visual guides
+     - Feature explanations and benefits
+
+   ✓ TECHNICAL_DOCS.md
+     - New Section 16: "Recent Enhancements" (detailed technical specs)
+     - Implementation details with code examples
+     - Bug fixes table and metrics
+     - Future improvements roadmap
+
+   ✓ CHANGELOG_DECEMBER_2025.md (NEW FILE)
+     - Complete version history
+     - All changes summarized
+     - Testing checklist
+     - Statistics and metrics
+
+
+📦 FILES MODIFIED
+═══════════════════════════════════════════════════════════════════════════════
+
+   • Canvex.py (400+ lines added)
+   • docs/USER_GUIDE.md (150+ lines added)
+   • docs/TECHNICAL_DOCS.md (700+ lines added)
+   • CHANGELOG_DECEMBER_2025.md (NEW)
+
+
+🧪 TESTING COMPLETED
+═══════════════════════════════════════════════════════════════════════════════
+
+   ✓ macOS 14.2 compatibility
+   ✓ Light theme testing
+   ✓ Dark theme testing
+   ✓ File operations (open, recent files, missing files)
+   ✓ Mapping creation, deletion, reset
+   ✓ Previous mappings dialog
+   ✓ Dropdown selections
+   ✓ List hover effects
+   ✓ Settings persistence
+
+
+🎯 KEY IMPROVEMENTS
+═══════════════════════════════════════════════════════════════════════════════
+
+   BEFORE                          →    AFTER
+   ─────────────────────────────────────────────────────────────────────
+   
+   No memory of files              →    Recent 10 files with quick access
+   Manual mapping entry            →    Automatic history (last 5)
+   No previous config restore      →    Load any previous mapping instantly
+   Selections hard to see          →    Clear, visible dropdowns
+   Delete sometimes failed         →    Works perfectly with history
+   No visual feedback on hover     →    Smooth, interactive list effects
+   Theme conflicts                 →    Native platform appearance
+   Small dialog window             →    Spacious 700×600 with preview
+
+
+💾 SETTINGS STRUCTURE
+═══════════════════════════════════════════════════════════════════════════════
+
+canva_last_settings.json structure:
+
+{
+  "theme": "Dark",
+  "resolution": "720",
+  "browser": "bing",
+  "format": "png",
+  "jpg_quality": "90",
+  "last_excel_dir": "/Users/kunal/Documents",
+  "recent_files": [
+    "/path/to/file1.xlsx",
+    "/path/to/file2.xlsx"
+  ],
+  "mapping_history": [
+    {
+      "timestamp": "2025-12-30T14:32:15.123456",
+      "mappings": [
+        ["name", "photo"],
+        ["title", "headshot"]
+      ]
+    }
+  ]
+}
+
+
+🚀 BUILD & DEPLOYMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+Build:
+  cd /Users/kunal/Canvex/FinalBuildMac
+  pyinstaller Canvex.spec --clean -y
+
+Test:
+  open /Users/kunal/Canvex/FinalBuildMac/dist/Canvex.app
+
+Location:
+  /Users/kunal/Canvex/FinalBuildMac/dist/Canvex.app
+
+
+✅ QUALITY METRICS
+═══════════════════════════════════════════════════════════════════════════════
+
+   Code Quality:       ✓ No syntax errors, full Python 3 compatibility
+   Performance:        ✓ No slowdowns, smooth animations
+   User Experience:    ✓ Intuitive, responsive, native look-and-feel
+   Reliability:        ✓ All features tested, edge cases handled
+   Documentation:      ✓ Comprehensive user and technical guides
+
+
+📋 VERSION INFORMATION
+═══════════════════════════════════════════════════════════════════════════════
+
+   Application:        Canvex v1.0.1
+   Release Date:       December 30, 2025
+   Platform:           macOS 14.2+
+   Python Version:     3.9+
+   Dependencies:       PyQt5, Selenium, Pandas, Pillow, requests
+
+
+🔮 FUTURE ROADMAP
+═══════════════════════════════════════════════════════════════════════════════
+
+   • Increase mapping history to 10 configurations
+   • Export/import mapping configurations
+   • Batch processing for multiple files
+   • Undo/redo functionality
+   • Drag-and-drop mapping reordering
+   • Cloud sync for settings
+
+
+═══════════════════════════════════════════════════════════════════════════════
+
+Author:       Kunal Pagariya
+Last Updated: December 30, 2025
+Status:       Production Ready ✓
+
+═══════════════════════════════════════════════════════════════════════════════
